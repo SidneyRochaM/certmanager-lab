@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sidney SRE | sredevops.com.br</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: #f9f9f9;
+      color: #222;
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 2rem;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      color: #00796B;
+    }
+    header p {
+      font-size: 1.2rem;
+      color: #555;
+    }
+    h2 {
+      color: #00695C;
+      border-bottom: 2px solid #B2DFDB;
+      padding-bottom: 0.4rem;
+    }
+    section {
+      margin-bottom: 2rem;
+    }
+    code, pre {
+      background: #eee;
+      padding: 1rem;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    a {
+      color: #009688;
+      text-decoration: none;
+    }
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      font-size: 0.85rem;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>SRE DevOps Zone</h1>
+    <p>Ambiente Kubernetes com TLS via Let's Encrypt</p>
+  </header>
+
+  <section>
+    <h2>Objetivo</h2>
+    <p>Configurar HTTPS automático com CertManager + Let's Encrypt.</p>
+  </section>
+
+  <section>
+    <h2>Tecnologias</h2>
+    <ul>
+      <li>OKE (Oracle Kubernetes Free Tier)</li>
+      <li>Helm, CertManager, Ingress</li>
+      <li>Cloudflare, Docker, GitHub</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Passo a Passo</h2>
+    <ol>
+      <li>Instalar Helm</li>
+      <li>Subir Ingress Controller</li>
+      <li>Instalar CertManager</li>
+      <li>Criar ClusterIssuer com Cloudflare</li>
+    </ol>
+  </section>
+
+  <footer>
+    Feito por Sidney — <a href="https://sredevops.com.br">sredevops.com.br</a>
+  </footer>
+</body>
+</html>

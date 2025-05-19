@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-response
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app-response
+  template:
+    metadata:
+      labels:
+        app: app-response
+    spec:
+      containers:
+        - name: app-response
+          image: docker.io/sidneymrocha/assets:v1.0.13
+          ports:
+            - containerPort: 80

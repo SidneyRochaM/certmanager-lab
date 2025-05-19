@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: minha-app-external-dns
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: minha-app-external-dns
+  template:
+    metadata:
+      labels:
+        app: minha-app-external-dns
+    spec:
+      containers:
+        - name: minha-app-external-dns
+          image: docker.io/sidneymrocha/assets:v1.0.11
+          ports:
+            - containerPort: 80

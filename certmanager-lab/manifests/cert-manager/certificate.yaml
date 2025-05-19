@@ -1,0 +1,18 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: sredevops-tls
+  namespace: default
+spec:
+  secretName: sredevops-tls
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: sredevops.com.br
+  dnsNames:
+    - sredevops.com.br
+    - "*.sredevops.com.br"
+  usages:
+    - digital signature
+    - key encipherment
+    - server auth

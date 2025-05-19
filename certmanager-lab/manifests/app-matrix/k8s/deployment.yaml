@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-matrix
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app-matrix
+  template:
+    metadata:
+      labels:
+        app: app-matrix
+    spec:
+      containers:
+        - name: app-matrix
+          image: docker.io/sidneymrocha/assets:v1.0.12
+          ports:
+            - containerPort: 80

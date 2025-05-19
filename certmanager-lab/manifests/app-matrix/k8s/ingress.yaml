@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: app-matrix
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    external-dns.alpha.kubernetes.io/hostname: app-matrix.sredevops.com.br
+spec:
+  ingressClassName: nginx
+  tls:
+  - hosts:
+      - app-matrix.sredevops.com.br
+    secretName: app-matrix-tls
+  rules:
+  - host: app-matrix.sredevops.com.br
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: app-matrix
+            port:
+              number: 80

@@ -1,0 +1,68 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, #0f0f0f, #1f1f1f);
+  color: #ffff00; /* amarelo */
+  font-family: 'Orbitron', monospace;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.container {
+  padding: 2rem;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #00ff00; /* verde */
+}
+
+p {
+  font-size: 1.2rem;
+  color: #ccc; /* pode deixar neutro ou branco, se quiser muda para branco #ffffff */
+  margin-bottom: 0.5rem;
+}
+
+a {
+  color: #ffff00; /* amarelo */
+  text-decoration: none;
+  border-bottom: 1px dashed #ffff00;
+}
+
+a:hover {
+  color: #00ff00; /* verde */
+  border-bottom: 1px solid #00ff00;
+}
+
+.footer {
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: #aaa; /* cinza claro */
+}
+
+.logo {
+  width: 120px;
+  height: auto;
+  margin-bottom: 20px;
+  border-radius: 50%;
+  box-shadow: 0 0 15px #00ff00; /* verde */
+}
+
+.glow {
+  animation: pulse 2s infinite;
+  text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 20px #00ff00;
+}
+
+@keyframes pulse {
+  0% { text-shadow: 0 0 5px #00ff00; }
+  50% { text-shadow: 0 0 20px #00ff00, 0 0 30px #00ff00; }
+  100% { text-shadow: 0 0 5px #00ff00; }
+}

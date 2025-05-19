@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: minha-app-external-dns
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    external-dns.alpha.kubernetes.io/hostname: minha-app-external-dns.sredevops.com.br
+spec:
+  ingressClassName: nginx
+  tls:
+  - hosts:
+      - minha-app-external-dns.sredevops.com.br
+    secretName: minha-app-external-dns-tls
+  rules:
+  - host: minha-app-external-dns.sredevops.com.br
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: minha-app-external-dns
+            port:
+              number: 80

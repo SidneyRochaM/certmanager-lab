@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🚀 Sidney SRE | sredevops.com.br</title>
+  <link rel="icon" type="image/png" href="favicon-96x96.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #0e0e0e;
+      color: #00ffcc;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+      margin-top: 40px;
+      margin-bottom: 60px;
+    }
+
+    header h1 {
+      font-size: 3em;
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(90deg, #00ffff, #00ff88, #00ffff);
+      background-size: 200% auto;
+      color: transparent;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shine 3s linear infinite;
+      text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffcc;
+    }
+
+    header p {
+      font-size: 1.2em;
+      color: #ffffff;
+      opacity: 0.8;
+    }
+
+    @keyframes shine {
+      to {
+        background-position: 200% center;
+      }
+    }
+
+    h2 {
+      color: #0ff;
+      font-size: 1.8em;
+      border-bottom: 1px solid #00ffcc;
+      padding-bottom: 5px;
+    }
+
+    section {
+      margin-bottom: 2.5rem;
+    }
+
+    ul, ol {
+      margin-left: 1.5rem;
+    }
+
+    code, pre {
+      background-color: #1e1e1e;
+      color: #00ffcc;
+      padding: 10px;
+      display: block;
+      overflow-x: auto;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+
+    a {
+      color: #0ff;
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      font-size: 0.9em;
+      color: #999;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>SRE DevOps Zone</h1>
+    <p>Ambiente Kubernetes + TLS Automático com CertManager & Let's Encrypt</p>
+  </header>
+
+  <section>
+    <h2>🎯 Objetivo</h2>
+    <p>Configurar emissão automática de certificados HTTPS usando o <strong>CertManager</strong> com Let's Encrypt.</p>
+  </section>
+
+  <section>
+    <h2>🛠 Tecnologias e Ferramentas</h2>
+    <ul>
+      <li>Kubernetes (OKE Free na Oracle)</li>
+      <li>Helm (Ingress e CertManager)</li>
+      <li>NGINX Ingress Controller</li>
+      <li>CertManager + Let's Encrypt (ACME)</li>
+      <li>Hostinger (domínio)</li>
+      <li>Cloudflare (DNS)</li>
+      <li>Docker & GitHub</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>📋 Passo a Passo</h2>
+    <ol>
+      <li>Instalar o Helm:
+        <pre><code>curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+helm version</code></pre>
+      </li>
+      <li>Configurar o domínio <code>sredevops.com.br</li>
+      <li>Instalar o NGINX Ingress Controller:
+        <pre><code>helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm repo update
+
+helm install ingress-nginx ingress-nginx/ingress-nginx \
+  --namespace ingress-nginx \
+  --create-namespace</code></pre>
+      </li>
+      <li>Instalar o CertManager via Helm:
+        <pre><code>helm repo add jetstack https://charts.jetstack.io
+helm repo update
+
+kubectl create namespace cert-manager
+
+helm install cert-manager jetstack/cert-manager \
+  --namespace cert-manager \
+  --version v1.14.4 \
+  --set installCRDs=true</code></pre>
+      </li>
+      <li>Criar um <code>ClusterIssuer</code> com autenticação Cloudflare.</li>
+      <li>Deploy de uma página HTML/CSS com Docker + HTTPS.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>✨ Resultados Alcançados</h2>
+    <ul>
+      <li>✅ Imagem Docker publicada no Docker Hub</li>
+      <li>✅ Código versionado no GitHub</li>
+      <li>✅ Certificados HTTPS válidos com TLS automático</li>
+      <li>✅ Página hospedada com domínio próprio + HTTPS</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>🔗 Links</h2>
+    <ul>
+      <li><a href="https://sredevops.com.br" target="_blank">🌐 Acesse com HTTPS</a></li>
+      <li><a href="https://github.com/SidneyRochaM/certmanager-lab" target="_blank">📁 GitHub do Projeto</a></li>
+      <li><a href="https://hpanel.hostinger.com/" target="_blank">🌍 Hostinger</a></li>
+      <li><a href="https://dash.cloudflare.com/" target="_blank">☁️ Cloudflare</a></li>
+      <li><a href="https://www.oracle.com/cloud/" target="_blank">☁️ Oracle Cloud (OKE)</a></li>
+      <li><a href="https://cert-manager.io/docs/installation/helm/" target="_blank">📄 Instalação CertManager</a></li>
+      <li><a href="https://cert-manager.io/docs/configuration/acme/" target="_blank">🔐 Let's Encrypt (ACME)</a></li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>Feito com 💚 por Sidney — <a href="https://sredevops.com.br" style="color:#00ffcc;">sredevops.com.br</a></p>
+  </footer>
+</body>
+</html>

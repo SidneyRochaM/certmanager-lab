@@ -1,2 +1,0 @@
-# certmanager-lab
-certmanager-lab

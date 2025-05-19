@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terminal DevOps - Sidney</title>
+  <style>
+    body {
+      background: #000;
+      color: #0f0;
+      font-family: monospace;
+      padding: 20px;
+    }
+    h1, h2 {
+      color: #0ff;
+    }
+    pre, code {
+      background: #111;
+      padding: 10px;
+      display: block;
+      border-left: 4px solid #0f0;
+      margin: 1rem 0;
+    }
+    a {
+      color: #0ff;
+      text-decoration: none;
+    }
+    footer {
+      margin-top: 40px;
+      font-size: 0.8rem;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <h1>[SRE DevOps Terminal]</h1>
+  <p>> Setup: TLS automático com CertManager + Let's Encrypt</p>
+
+  <h2># Tecnologias</h2>
+  <ul>
+    <li>OKE</li>
+    <li>Helm</li>
+    <li>CertManager</li>
+    <li>NGINX Ingress</li>
+    <li>Docker</li>
+  </ul>
+
+  <h2># Instalação Helm</h2>
+  <pre><code>curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash</code></pre>
+
+  <h2># Ingress + CertManager</h2>
+  <pre><code>helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx</code></pre>
+
+  <footer>
+    Terminal SRE by <a href="https://sredevops.com.br">sredevops.com.br</a>
+  </footer>
+</body>
+</html>
