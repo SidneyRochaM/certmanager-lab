@@ -1,7 +1,11 @@
 🛡️ TLS Automático com CertManager & Let's Encrypt - SRE DevOps Zone
 
+
+
 🌟 Objetivo
 Configurar emissão automática de certificados HTTPS para aplicações hospedadas em um cluster Kubernetes (OKE) usando o CertManager com Let's Encrypt.
+
+
 
 📊 Arquitetura
 
@@ -22,48 +26,83 @@ Kubernetes
  + ExternalDNS atualiza os registros no Cloudflare automaticamente
  + CertManager solicita certificados Let's Encrypt via ACME
 
+
+
 🚀 Tecnologias e Ferramentas
-Oracle Cloud Infrastructure (OKE - Always Free)
+
+Oracle Cloud Infrastructure (OKE)
+
 Kubernetes
+
 Helm
+
 NGINX Ingress Controller
+
 CertManager
+
 Let's Encrypt (ACME)
+
 Cloudflare (DNS + Proxy)
+
 ExternalDNS
+
 ArgoCD (CD)
+
 Docker
+
 GitHub
+
 Grafana + Prometheus (monitoramento)
 
+
+
 📗 Passo a Passo Detalhado
+
 
 1. 📅 Domínio e Cloudflare
 Domínio registrado: sredevops.com.br
 Transferido da Hostinger para Cloudflare.
 Nameservers da Cloudflare configurados na Hostinger.
 
+
+
 2. ⚖️ Helm (Instalação)
 curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+
 helm version
 
-3. 🔌 NGINX Ingress Controller via Helm
+
+
+4. 🔌 NGINX Ingress Controller via Helm
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+
 helm repo update
+
 helm install ingress-nginx ingress-nginx/ingress-nginx \
+
   --namespace ingress-nginx --create-namespace
+  
 Importante: guardar o ingressClassName para referência.
 
-4. 📃 CertManager via Helm
+
+
+5. 📃 CertManager via Helm
 helm repo add jetstack https://charts.jetstack.io
+
 helm repo update
+
 kubectl create namespace cert-manager
+
 helm install cert-manager jetstack/cert-manager \
+
   --namespace cert-manager \
+  
   --version v1.14.4 \
+  
   --set installCRDs=true
 
-5. 📝 ClusterIssuer para Let's Encrypt
+
+7. 📝 ClusterIssuer para Let's Encrypt
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
 metadata:
@@ -85,7 +124,7 @@ spec:
         dnsZones:
         - 'sredevops.com.br'
 
-6. 📊 ExternalDNS via Helm
+8. 📊 ExternalDNS via Helm
 helm repo add bitnami https://charts.bitnami.com/bitnami
 helm repo update
 helm upgrade --install external-dns bitnami/external-dns \
@@ -99,7 +138,7 @@ helm upgrade --install external-dns bitnami/external-dns \
   --set sources[0]=ingress
 Token Cloudflare com permissão de "Zone DNS Edit" é essencial.
 
-7. ✨ Argo CD via Helm
+9. ✨ Argo CD via Helm
 helm repo add argo https://argoproj.github.io/argo-helm
 helm repo update
 helm upgrade --install argocd argo/argo-cd \
@@ -113,7 +152,7 @@ helm upgrade --install argocd argo/argo-cd \
   --set server.ingress.tls[0].secretName=argocd-tls \
   --set server.config.url=https://argocd.sredevops.com.br
 
-8. 🔑 Login e Repositório ArgoCD
+10. 🔑 Login e Repositório ArgoCD
 kubectl get secret argocd-initial-admin-secret -n argocd \
   -o jsonpath="{.data.password}" | base64 -d
 
