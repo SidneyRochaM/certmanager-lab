@@ -4,12 +4,19 @@
 Configurar emissão automática de certificados HTTPS para aplicações hospedadas em um cluster Kubernetes (OKE) usando o CertManager com Let's Encrypt.
 
 📊 Arquitetura
+
 Usuário
+
    ↓ HTTPS
+   
 Ingress (NGINX) 
+
    ↓
+   
 Aplicativo 
+
    ↓
+   
 Kubernetes 
 
  + ExternalDNS atualiza os registros no Cloudflare automaticamente
