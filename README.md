@@ -77,7 +77,7 @@ helm version
 
 
 
-4. 🔌 NGINX Ingress Controller via Helm
+3. 🔌 NGINX Ingress Controller via Helm
 
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 
@@ -91,7 +91,7 @@ Importante: guardar o ingressClassName para referência.
 
 
 
-5. 📃 CertManager via Helm
+4. 📃 CertManager via Helm
 
 helm repo add jetstack https://charts.jetstack.io
 
@@ -108,7 +108,7 @@ helm install cert-manager jetstack/cert-manager \
   --set installCRDs=true
 
 
-7. 📝 ClusterIssuer para Let's Encrypt
+5. 📝 ClusterIssuer para Let's Encrypt
 
 apiVersion: cert-manager.io/v1
 
@@ -150,7 +150,7 @@ spec:
         
         - 'sredevops.com.br'
 
-8. 📊 ExternalDNS via Helm
+6. 📊 ExternalDNS via Helm
 
 helm repo add bitnami https://charts.bitnami.com/bitnami
 
@@ -167,7 +167,7 @@ helm upgrade --install external-dns bitnami/external-dns \
   --set sources[0]=ingress
 Token Cloudflare com permissão de "Zone DNS Edit" é essencial.
 
-9. ✨ Argo CD via Helm
+7. ✨ Argo CD via Helm
 
 helm repo add argo https://argoproj.github.io/argo-helm
 
@@ -184,7 +184,7 @@ helm upgrade --install argocd argo/argo-cd \
   --set server.ingress.tls[0].secretName=argocd-tls \
   --set server.config.url=https://argocd.sredevops.com.br
 
-10. 🔑 Login e Repositório ArgoCD
+8. 🔑 Login e Repositório ArgoCD
 
 kubectl get secret argocd-initial-admin-secret -n argocd \
   -o jsonpath="{.data.password}" | base64 -d
