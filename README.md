@@ -119,20 +119,35 @@ metadata:
   name: letsencrypt-prod
 
 spec:
+
   acme:
+  
     server: https://acme-v02.api.letsencrypt.org/directory
+    
     email: seu-email@sredevops.com.br
+    
     privateKeySecretRef:
+    
       name: letsencrypt-prod
+      
     solvers:
+    
     - dns01:
+    
         cloudflare:
+        
           email: seu-email@sredevops.com.br
+          
           apiTokenSecretRef:
+          
             name: cloudflare-api-token-secret
+            
             key: api-token
+            
       selector:
+      
         dnsZones:
+        
         - 'sredevops.com.br'
 
 8. 📊 ExternalDNS via Helm
