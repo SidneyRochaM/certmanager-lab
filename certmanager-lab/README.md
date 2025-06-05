@@ -1,4 +1,4 @@
-                                                                    🛡️ TLS Automático com CertManager & Let's Encrypt - SRE DevOps Zone
+🛡️ TLS Automático com CertManager & Let's Encrypt - SRE DevOps Zone
 
 🌟 Objetivo
 Configurar emissão automática de certificados HTTPS para aplicações hospedadas em um cluster Kubernetes (OKE) usando o CertManager com Let's Encrypt.
@@ -122,8 +122,14 @@ Aplicativo Docker simples com HTML estático versionado e entregue via Argo CD.
 Grafana e Prometheus configurados para observabilidade do cluster OKE.
 
 🚀 Resultados Alcançados
+
 ✅ CertManager emitindo certificados TLS válidos automaticamente
+
 ✅ Domínio customizado funcional via Cloudflare
+
 ✅ ExternalDNS atualizando domínios de forma automática
+
 ✅ Argo CD operando com HTTPS + deploy contínuo
+
 ✅ Monitoramento via Grafana
+
